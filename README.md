@@ -28,7 +28,7 @@ Ein browserbasiertes Jump-and-Run-Spiel mit handgezeichneten Elementen, objektor
 
 ## 🖼️ Vorschau
 
-![El Pollo Loco Screenshot](./assets/img/screenshot.png)
+![El Pollo Loco Screenshot](img/elpolloloco.png)
 
 ---
 
