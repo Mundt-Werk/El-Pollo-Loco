@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/10_own_elements/14_favicon/favicon-01.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/response.css">
+    <title>El Pollo Loco Game</title>    
+
+    <!-- Base scripts -->
+    <script src="./js/script.js"></script>
+    <script src="./js/dialogs.js"></script>
+
+    <!-- Model scripts -->
+    <script src="models/drawable-object.class.js"></script>
+    <script src="models/movable-object.class.js"></script>
+    <script src="models/throwable-object.class.js"></script>
+    <script src="models/coin.class.js"></script>
+    <script src="models/bottle.class.js"></script>
+    <script src="models/character.class.js"></script>
+    <script src="models/chicken.class.js"></script>
+    <script src="models/bird.class.js"></script>
+    <script src="models/endboss.class.js"></script>
+    <script src="models/cloud.class.js"></script>
+    <script src="models/house.class.js"></script>
+    <script src="models/shop.class.js"></script>
+    <script src="models/background-object.class.js"></script>
+    <script src="models/health-status-bar.class.js"></script>
+    <script src="models/coin-status-bar.class.js"></script>
+    <script src="models/bottle-status-bar.class.js"></script>
+    <script src="models/boss-bar.class.js"></script>
+    <script src="models/keyboard.class.js"></script>    
+
+    <!-- World and level scripts -->
+    <script src="models/world.class.js"></script>
+    <script src="models/level.class.js"></script>
+    <script src="levels/level1.js"></script>
+   
+    <!-- Game logic and sound -->
+    <script src="js/game.js"></script>
+    <script src="js/sound.js"></script>
+</head>
+<body onload="init()">
+
+    <!-- Orientation overlay -->
+    <div id="orientationOverlay" class="orientation-overlay"></div>
+    
+    <h1>El Pollo Loco</h1>
+    
+    <!-- Game container -->
+    <div id="gameContainer" style="position: relative;">
+        <!-- Game canvas -->
+         <div class="canva-container">
+            <canvas id="canvas" width="720" height="480"></canvas>
+        </div>
+        
+        <div id="mobileControls2" class="mobile-controls">
+            <div id="mobileControls1" class="mobile-controls-one">
+                <div class="mobile-controls-end">
+                    <img id="buttonJump" src="./img/10_own_elements/01_buttons/phone_button_up.png" alt="Jump" class="control-button">
+                </div> 
+            </div>
+            <div class="mobile-controls-left">
+                <img id="buttonLeft" src="./img/10_own_elements/01_buttons/phone_button_left.png" alt="Left" class="control-button">
+                <img id="buttonRight" src="./img/10_own_elements/01_buttons/phone_button_right.png" alt="Right" class="control-button">
+            </div>
+            <div class="mobile-controls-middle">
+                <img id="buttonShop" src="./img/10_own_elements/01_buttons/phone_button_shop.png" alt="Shop" class="control-button">
+            </div>
+            <div class="mobile-controls-right">
+                <img id="buttonThrow" src="./img/10_own_elements/01_buttons/phone_button_bottle.png" alt="Throw" class="control-button">
+                <img id="buttonCrouch" src="./img/10_own_elements/01_buttons/phone_button_down.png" alt="Crouch" class="control-button">
+            </div>    
+        </div>
+
+        <!-- Menu button -->
+        <div>
+            <img id="buttonMenü" src="./img/10_own_elements/01_buttons/menü_button.png" alt="Menu" class="control-button">
+        </div>
+
+        <!-- Info menu -->
+        <div id="infoMenü" class="info-menü">
+            <div class="info-menü-back-button">
+                <img src="./img/10_own_elements/01_buttons/back_button.png" alt="Back" onclick="toggleInfoMenu()">
+            </div>
+            <div class="info-menü-page-buttons">
+                <img src="./img/10_own_elements/01_buttons/left_button.png" alt="Left Button" onclick="toggleBackground('left')">
+                <img src="./img/10_own_elements/01_buttons/right_button.png" alt="Right Button" onclick="toggleBackground('right')">
+            </div>
+        </div>
+
+        <!-- Settings menu -->
+        <div id="settingMenü" class="settings-menü">
+            <div class="info-menü-back-button">
+                <img src="./img/10_own_elements/01_buttons/back_button.png" alt="Back" onclick="toggleSettingsMenu()">
+            </div>
+            <div class="settings-menü-buttons">
+                <img id="soundSettingButton" src="./img/10_own_elements/01_buttons/disable_button.png" alt="Sound Setting" onclick="toggleSound()">
+                <img id="musicSettingButton" src="./img/10_own_elements/01_buttons/disable_button.png" alt="Music Setting" onclick="toggleMusicSetting()">
+                <img id="effectsSettingButton" src="./img/10_own_elements/01_buttons/disable_button.png" alt="Effects Setting" onclick="toggleEffectsSetting()">
+            </div>
+        </div>
+
+        <!-- Lose overlay -->
+        <div id="loseOverlay" class="win-lose-overlay" style="display: none;">
+            <video id="loseVideo" autoplay>
+                <source src="./video/videos/video_lose1.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+        </div>
+        
+        <!-- Win overlay -->
+        <div id="winOverlay" class="win-lose-overlay" style="display: none;">
+            <video id="winVideo" autoplay>
+                <source src="./video/videos/video_win.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+        </div>
+
+        <!-- Start screen overlay -->
+        <div id="startScreen" class="overlay">
+            <div class="setting-container">
+                <button id="settingsButton" class="menu-button" onclick="toggleSettingsMenu()">
+                    <img src="./img/10_own_elements/01_buttons/setting_button.png" alt="Settings">
+                </button>
+                <button id="infoButton" class="menu-button" onclick="toggleInfoMenu()">
+                    <img src="./img/10_own_elements/01_buttons/info_button.png" alt="Help">
+                </button>
+                <button id="soundButton" class="menu-button" onclick="toggleSound()">
+                    <img src="./img/10_own_elements/01_buttons/sound_off_button.png" alt="Sound">
+                </button>
+            </div>
+            <div class="start-container">
+                <button onclick="startDialog('game')" id="startGameButton" class="menu-button">
+                    <img src="./img/10_own_elements/01_buttons/start_button.png" alt="Start Game">
+                </button>
+            </div>
+        </div>
+
+        <!-- Pause overlay -->
+        <div id="pauseOverlay" class="pause-overlay">
+            <img src="./img/10_own_elements/01_buttons/pause_continue_button.png" alt="Continue" onclick="resumeGame()" style="cursor: pointer;">
+            <img src="./img/10_own_elements/01_buttons/pause_setting_button.png" alt="Settings" onclick="toggleSettingsMenu()" style="cursor: pointer;">
+            <img src="./img/10_own_elements/01_buttons/pause_keymapping_button.png" alt="Key Mapping" onclick="toggleInfoMenu()" style="cursor: pointer;">
+            <img src="./img/10_own_elements/01_buttons/pause_quidgame_button.png" alt="Quit Game" onclick="quitGame()" style="cursor: pointer;">
+        </div>
+
+        <!-- Dialog overlay -->
+        <div id="dialogOverlay" class="dialog-overlay">
+            <img id="dialogCharacter" class="dialog-character" src="./img/10_own_elements/12_characters/01_woman.png" alt="Character">
+            <div class="dialog-box">
+                <p id="dialogText"></p>
+            </div>
+            <button id="dialogNextButton" class="dialog-next" onclick="nextDialogStep()">Next</button>
+        </div>
+
+        <!-- Shop dialog overlay -->
+        <div id="shopDialogOverlay" class="dialog-overlay">
+            <img id="shopDialogCharacter" class="dialog-character" src="" alt="Character">
+            <div class="dialog-box">
+                <p id="shopDialogText" class="dialog-text"></p>
+            </div>
+            <button id="shopDialogNextButton" class="dialog-next" onclick="nextDialogStep()">Next</button>
+        </div>
+
+        <!-- Boss dialog overlay -->
+        <div id="bossDialogOverlay" class="dialog-overlay">
+            <img id="bossDialogCharacter" class="dialog-character" src="" alt="Character">
+            <div class="dialog-box">
+                <p id="bossDialogText" class="dialog-text"></p>
+            </div>
+            <button id="bosDialogNextButton" class="dialog-next" onclick="nextDialogStep()">Next</button>
+        </div>      
+
+        <!-- Shop overlay -->
+        <div id="shopOverlay" class="shop-overlay" style="display: none;">
+            <div class="shop-menu">
+                <div class="info-menü-back-button">
+                    <img src="./img/10_own_elements/01_buttons/back_button.png" alt="Back" onclick="closeShop()">
+                </div>
+                <div class="shop-button-container">
+                    <img src="./img/10_own_elements/08_shop/02_shop_button_1.png" alt="Buy Taco" onclick="buyTaco()" class="shop-button">
+                    <img src="./img/10_own_elements/08_shop/03_shop_button_2.png" alt="Buy Bottle" onclick="buyBottle()" class="shop-button">
+                </div>
+                <div class="shop-inventory-container">
+                    <div class="shop-inventory-amount">
+                        <span id="coinCount"></span>
+                        <img src="./img/8_coin/coin_1.png" alt="Coin">
+                    </div>
+                    <div class="shop-inventory-amount">
+                        <span id="tacoCount"></span>
+                        <img src="./img/10_own_elements/09_tacco/tacco_heart.png" alt="Taco">
+                    </div>
+                    <div class="shop-inventory-amount">
+                        <span id="bottleCount"></span>
+                        <img src="./img/6_salsa_bottle/salsa_bottle.png" alt="Bottle">
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+</body>
+</html>

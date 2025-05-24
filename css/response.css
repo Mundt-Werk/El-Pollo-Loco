@@ -1,0 +1,183 @@
+
+
+@media only screen and (max-width: 720px){
+    canvas {
+        width: 100%;
+        height: auto;
+    }
+
+    body {        
+        background-image: url(./img/10_own_elements/02_background/büro_background10.png);
+        
+    }
+
+    h1 {
+        display: none;
+    }
+}
+
+@media only screen and (max-height: 890px){
+    h1 {
+        font-size: 32px;
+    }
+
+    body {
+        background-image: url(./img/10_own_elements/02_background/büro_background6.png);
+    }
+}
+
+@media only screen and (max-height: 650px){
+    h1 {
+        display: none;
+    }
+
+    body {
+        background-image: url(./img/10_own_elements/02_background/büro_background7.png);
+    }
+
+    .shop-button-container img {
+        height: 140px;
+        width: 140px;
+    }
+}
+
+@media only screen and (max-height: 460px){
+    canvas {
+        height: 100vh;
+    }
+
+    body {        
+        background-image: url(./img/10_own_elements/02_background/büro_smalldevice.png);
+        background-size: cover;
+        
+    }
+
+    .dialog-character {
+        position: absolute;
+        bottom: 0;
+        width: 600px; 
+        z-index: 202; 
+        opacity: 0; 
+        animation: fadeIn 1s ease-in forwards; 
+    }
+
+    .dialog-box {
+        padding: 0;
+        font-size: 16px;
+    }
+
+    .dialog-next {
+        font-size: 16px;
+    }
+
+    .settings-menü-buttons img {
+        height: 56px;
+        width: 56px;
+    } 
+
+    .info-menü-back-button img {
+        height: 56px;
+    }
+    
+    .mobile-controls {
+        position: absolute;
+        bottom: 0;
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+        z-index: 9;
+        pointer-events: none; 
+    }
+    
+    .mobile-controls-one {
+        position: absolute;
+        bottom: 80px;
+        width: 111%;
+        display: flex;
+        justify-content: flex-end;
+        gap: 40px;
+        z-index: 9;
+        pointer-events: none; 
+    }
+
+    .control-button, .mobile-controls-left, .mobile-controls-middle, .mobile-controls-right, .mobile-controls-end {
+        width: 50%;
+        max-width: 60px;
+        pointer-events: all; 
+        display: flex;
+    }
+
+    .info-menü-page-buttons {
+        width: 90%;
+        margin-top: 0;
+    }
+}
+
+@media only screen and (max-height: 350px){
+    .shop-button-container img {
+        height: 120px;
+        width: 120px;
+    }
+
+    .shop-inventory-container {
+        gap: 24px;
+    }
+
+    .shop-inventory-container img {
+        height: 16px;
+        width: 16px;
+    }
+
+    .shop-inventory-amount {
+        font-size: 16px;
+    } 
+    
+    .info-menü-back-button {
+        margin-top: 8;
+    }
+}
+
+@media only screen and (max-height: 280px){
+    .shop-button-container img {
+        height: 80px;
+        width: 80px;
+    }
+}
+
+@media (pointer: coarse) {
+    .control-button, .mobile-controls-left, .mobile-controls-middle, .mobile-controls-right, .mobile-controls-end {
+        width: 50%;
+        max-width: 60px;
+        pointer-events: all; 
+        display: flex;
+    }
+
+    .mobile-controls {
+        position: absolute;
+        bottom: 0;
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+        z-index: 9;
+        pointer-events: none; 
+    }
+    
+    .mobile-controls-one {
+        position: absolute;
+        bottom: 80px;
+        width: 111%;
+        display: flex;
+        justify-content: flex-end;
+        gap: 40px;
+        z-index: 9;
+        pointer-events: none; 
+    }
+}
+
+@media only screen and (min-height: 2100px) {
+    body {
+        height: 100vh;
+    }
+}

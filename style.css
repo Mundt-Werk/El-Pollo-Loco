@@ -1,0 +1,488 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: OwnFont;
+    font-weight: 500;
+    font-size: 40px;
+    background-image: url(./img/10_own_elements/02_background/büro_background_ultrabig.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: OwnFont;
+    src: url(./font/MexicanTequila.ttf);
+  }
+
+canvas {
+    background-color: black;
+    display: block !important;
+}
+
+.orientation-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('./img/10_own_elements/13_startscreen/01_turn_device.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; 
+    opacity: 0; 
+    pointer-events: none; 
+    transition: opacity 3s ease; 
+}
+
+.orientation-overlay.visible {
+    opacity: 1; 
+    pointer-events: all; 
+}
+
+h1 {
+    color: #d36826;
+    font-weight: 100;
+    margin-block-start: 24px;
+    margin-block-end: 0;
+    margin-bottom: 96px;
+}
+
+h2 {
+    color: #ff9800;
+    font-weight: 100;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-bottom: 16px;
+}
+
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%; 
+    background-image: url(./img/10_own_elements/06_startbildschirm/startscreen_canvas_neu.png);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-size: 30px;
+    z-index: 10; 
+}
+
+.overlay img {
+    height: 80px;
+}
+
+.overlay img:hover {
+    scale: 1.1;
+    filter: drop-shadow(1px 1px 4px  rgba(255, 255, 255, 0.5));
+    cursor: pointer;
+}
+
+button {
+    border: unset;
+    background-color: transparent;
+    padding: 0;
+}
+
+.setting-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.start-container {
+    height: 70%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-right: 130px;
+}
+
+.start-button-container {
+    display: flex;
+    margin-top: 16px;
+}
+
+.settings-menü {
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    width: 80%; 
+    height: 90%; 
+    background-color: transparent;
+    display: none; 
+    z-index: 20; 
+    border-radius: 10px;
+    text-align: center;
+    background-image: url(./img/10_own_elements/01_buttons/setting_menü_text.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.settings-menü img {
+
+    height: auto;
+    border-radius: 10px;
+}
+
+.settings-menü img:hover {
+    scale: 1.1;
+    filter: drop-shadow(1px 1px 4px  rgba(255, 255, 255, 0.5));
+    cursor: pointer;
+}
+
+.settings-menü-buttons {
+    width: 75%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: -32px;
+    align-items: end;
+    gap: 24px;
+}
+
+.settings-menü-buttons img {
+    height: 80px;
+    width: 80px;
+}
+
+.info-menü {
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    width: 80%; 
+    height: 90%; 
+    background-color: transparent;
+    display: none; 
+    z-index: 20; 
+    border-radius: 10px;
+    text-align: center;
+    background-image: url(./img/10_own_elements/01_buttons/info_menü_1.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.info-menü-back-button {
+    width: 95%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 24px;
+}
+
+.info-menü-back-button img {
+    height: 80px;
+}
+
+.info-menü-back-button img:hover {
+    scale: 1.1;
+    filter: drop-shadow(1px 1px 4px  rgba(255, 255, 255, 0.5));
+    cursor: pointer;
+}
+
+.pause-overlay {
+    position: absolute;
+    top: 5%;
+    left: 10%;
+    width: 80%;
+    height: 90%;
+    background-image: url(./img/10_own_elements/01_buttons/pause_menü.png);
+    background-size: cover;
+    background-position: center;
+    display: none; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10; 
+    color: white;
+    font-size: 40px;
+    text-align: center;
+    gap: 10px;
+}
+
+.pause-overlay img {
+    height: 60px;
+}
+
+.pause-overlay img:hover {
+    scale: 1.05;
+}
+
+.pause-overlay button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: #ff9800;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.pause-overlay button:hover {
+    background-color: #ffa726;
+    scale: 1.1;
+}
+
+.info-menü-page-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 48px;
+    gap: 512px;
+}
+
+.info-menü-page-buttons img {
+    width: 120px;
+}
+
+.info-menü-page-buttons img:hover {
+    scale: 1.1;
+    filter: drop-shadow(1px 1px 4px  rgba(255, 255, 255, 0.5));
+    cursor: pointer;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+.dialog-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+    flex-direction: column;
+    display: none;
+}
+
+.dialog-box {
+    position: absolute;
+    top: 20%; 
+    width: 70%; 
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    font-size: 24px;
+    z-index: 201; 
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    opacity: 0; 
+    animation: fadeIn 1s ease-in forwards; 
+}
+
+
+.dialog-character {
+    position: absolute;
+    bottom: 0;
+    height: 400px; 
+    z-index: 202; 
+    opacity: 0; 
+    animation: fadeIn 1s ease-in forwards; 
+}
+
+.dialog-next {
+    margin-top: 20px;
+    font-size: 18px;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: black;
+    background-color: white;
+    border: none;
+    border-radius: 16px;
+    z-index: 1000;
+    opacity: 0; 
+    animation: fadeIn 1s ease-in forwards; 
+}
+
+.dialog-next:hover {
+    background-color: gold; 
+    color: white;
+    cursor: pointer;
+}
+
+#dialogText, #shopDialogText {
+    opacity: 0; 
+    animation: fadeIn 1s ease-in forwards; 
+}
+
+
+.shop-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100; 
+}
+
+
+.shop-menu {
+    position: relative;
+    width: 80%; 
+    height: 90%; 
+    background-image: url('./img/10_own_elements/08_shop/01_shop_overlay.png'); /* Hintergrundbild */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    z-index: 101;
+    padding: 24px;
+}
+
+
+.shop-button-container img {
+    height: 160px;
+    width: 160px;
+}
+
+.shop-button-container img:hover {
+    scale: 1.1;
+    filter: drop-shadow(1px 1px 4px  rgba(255, 255, 255, 0.5));
+    cursor: pointer;
+}
+
+.shop-inventory-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.shop-inventory-container img {
+    height: 32px;
+    width: 32px;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 8px;
+    border-radius: 40px;
+}
+
+.shop-inventory-amount {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: white;
+    font-size: 24px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.win-lose-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    border: 5px solid white; 
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+video:hover {
+    cursor: wait;
+}
+
+.control-button, .mobile-controls-left, .mobile-controls-middle, .mobile-controls-right, .mobile-controls-end {
+    display: none;
+}
+
+.control-button:hover {
+    cursor: pointer;
+}
+
+.mobile-controls, .mobile-controls-one {
+    display: none; 
+}
+
+#buttonLeft {
+    position: absolute;
+    left: 5%;
+    bottom: 15%;
+}
+
+#buttonRight {
+    position: absolute;
+    left: 20%;
+    bottom: 15%;
+}
+
+#buttonJump {
+    position: absolute;
+    right: 1%;
+    bottom: 15%;
+}
+
+#buttonThrow {
+    position: absolute;
+    right: 5%;
+    bottom: 30%;
+}
+
+#buttonCrouch {
+    position: absolute;
+    right: -10%;
+    bottom: 10%;
+}
+
+#buttonShop {
+    position: absolute;
+    right: 36%;
+    bottom: 10%;
+}
+
+#buttonMenü {
+    position: absolute;
+    right: 0%;
+    top: 10%;
+}
+
+.canva-container {
+    height: 100%;
+    width: 100%;
+}
+
